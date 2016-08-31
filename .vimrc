@@ -2,7 +2,8 @@ syntax enable
 
 let g:molokai_original = 1
 let g:rehash256 = 1
-colorscheme molokai
+colorscheme my_molokai
+
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4
