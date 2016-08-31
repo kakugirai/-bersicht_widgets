@@ -4,6 +4,7 @@ let g:molokai_original = 1
 let g:rehash256 = 1
 colorscheme my_molokai
 
+
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4
@@ -113,6 +114,10 @@ Plugin 'JavaScript-Indent'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'me-vlad/python-syntax.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'klen/python-mode'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -136,3 +141,13 @@ map <C-n> :NERDTreeToggle<CR>
 " set rtp+=$HOMEanaconda/lib/python2.7/site-packages/powerline/bindings/vim
 " set laststatus=2
 " set t_Co=256
+
+" syntastic recommend setting
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
