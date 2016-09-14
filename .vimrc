@@ -117,6 +117,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'me-vlad/python-syntax.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-surround'
 " Plugin 'klen/python-mode'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -151,3 +152,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" Fix the problem of lightline.vim
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
