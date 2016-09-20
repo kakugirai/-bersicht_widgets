@@ -4,11 +4,11 @@ let g:molokai_original = 1
 let g:rehash256 = 1
 colorscheme my_molokai
 
-
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4
-set expandtab       " tabs are spaces
+
+set expandtab           " tabs are spaces
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 
@@ -23,11 +23,13 @@ set showmatch           " highlight matching [{()}]
 set incsearch           " search as characters are entered
 set ignorecase
 set hlsearch            " highlight matches
+
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
+
 " space open/closes folds
 nnoremap <space> za
 set foldmethod=indent   " fold based on indent level
@@ -40,6 +42,7 @@ nnoremap E $
 " $/^ doesn't do anything
 nnoremap $ <nop>
 nnoremap ^ <nop>
+
 " highlight last inserted text
 nnoremap gV `[v`]
 
@@ -48,11 +51,13 @@ let mapleader=","       " leader is comma
 inoremap jk <esc>
 set shortmess=atI
 
+" enable mouse
 set mouse=a
 set mousehide
 
 set title
 
+" disable beep and flash
 set novisualbell
 set noerrorbells
 set t_vb=
@@ -60,8 +65,8 @@ set tm=500
 
 set magic
 
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+" set backspace=eol,start,indent
+" set whichwrap+=<,>,h,l
 
 set ruler
 
@@ -72,15 +77,16 @@ set showmode
 set scrolloff=7
 set nowrap
 
-set smartindent
-set autoindent
+" set smartindent
+" set autoindent
 
 set encoding=utf-8
 
-cnoremap <C-j> <t_kd>
-cnoremap <C-k> <t_ku>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -117,8 +123,13 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'me-vlad/python-syntax.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'valloric/youcompleteme'
 Plugin 'tpope/vim-surround'
-" Plugin 'klen/python-mode'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'klen/python-mode'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'kien/ctrlp.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -153,8 +164,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" Fix the problem of lightline.vim
 set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+
+" SimpyFlod setting
+let g:SimpyFlod_docstring_preview=1
+
+"syntastic
+" let python_highlight_all=1
