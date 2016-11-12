@@ -2,7 +2,11 @@ syntax enable
 
 let g:molokai_original = 1
 let g:rehash256 = 1
-colorscheme my_molokai
+colorscheme molokai
+
+" overwirte molokai background
+hi Normal ctermbg=none
+hi NonText ctermbg=none
 
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
@@ -65,6 +69,7 @@ set tm=500
 
 set magic
 
+set backspace=2
 " set backspace=eol,start,indent
 " set whichwrap+=<,>,h,l
 
