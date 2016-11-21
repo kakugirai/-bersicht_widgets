@@ -1,44 +1,99 @@
+" Change <leader> key
+let mapleader = ','
+let g:mapleader = ','
+
 syntax enable
 
 let g:molokai_original = 1
 let g:rehash256 = 1
 colorscheme molokai
 
-" overwirte molokai background
+" Overwirte molokai background
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
+" Set history capacity
+set history=2000
+
+" Check file type
+filetype on
+" Autoindent by checking file type
+filetype indent on
+" Allow plugin
+filetype plugin on
+" Open auto-complete
+filetype plugin indent on
+
+" Auto read file
+set autoread
+
+" Hide Uganda children
+set shortmess=atI
+
+" Show the origin file while exiting vim
+" set t_ti= t_te=
+
+" Change the terminal's title
+set title
+
+" number of visual spaces per TAB
+set tabstop=4
+" number of spaces in tab when editing
+set softtabstop=4
 set shiftwidth=4
 
-set expandtab           " tabs are spaces
-set number              " show line numbers
-set showcmd             " show command in bottom bar
+" tabs are spaces
+set expandtab 
+" show line numbers
+set number
+" show command in bottom bar
+set showcmd
 
-set cursorline          " highlight current line
+" highlight current line
+set cursorline
+
+" highlight current column
 set cursorcolumn
 
-filetype indent on      " load filetype-specific indent files
+" visual autocomplete for command menu
+set wildmenu
 
-set wildmenu            " visual autocomplete for command menu
-set lazyredraw          " redraw only when we need to.
-set showmatch           " highlight matching [{()}]
-set incsearch           " search as characters are entered
+" redraw only when we need to.
+set lazyredraw
+
+" highlight matching [{()}]
+set showmatch
+
+" search as characters are entered
+set incsearch
+
 set ignorecase
-set hlsearch            " highlight matches
+
+" highlight matches
+set hlsearch
+
 
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
-set foldenable          " enable folding
-set foldlevelstart=10   " open most folds by default
-set foldnestmax=10      " 10 nested fold max
+
+" enable folding
+set foldenable
+
+" open most folds by default
+set foldlevelstart=10
+
+" 10 nested fold max
+set foldnestmax=10 
 
 " space open/closes folds
 nnoremap <space> za
-set foldmethod=indent   " fold based on indent level
+
+" fold based on indent level
+set foldmethod=indent
+
 nnoremap j gj
 nnoremap k gk
+
 " move to beginning/end of line
 nnoremap B ^
 nnoremap E $
@@ -50,7 +105,6 @@ nnoremap ^ <nop>
 " highlight last inserted text
 nnoremap gV `[v`]
 
-let mapleader=","       " leader is comma
 " jk is escape
 inoremap jk <esc>
 set shortmess=atI
@@ -58,8 +112,8 @@ set shortmess=atI
 " enable mouse
 set mouse=a
 set mousehide
-
-set title
+" scroll in vim instead of terminal
+set mouse=nicr
 
 " disable beep and flash
 set novisualbell
@@ -73,17 +127,17 @@ set backspace=2
 " set backspace=eol,start,indent
 " set whichwrap+=<,>,h,l
 
+" set a ruler for maxinum 80 words in a line
 set ruler
 
+" show the command that had been typed
 set showcmd
 
+" show command mode (Normal/Visual/Insert)
 set showmode
 
-set scrolloff=7
+set scrolloff=10
 set nowrap
-
-" set smartindent
-" set autoindent
 
 set encoding=utf-8
 
@@ -129,9 +183,9 @@ Plugin 'me-vlad/python-syntax.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'valloric/youcompleteme'
-Plugin 'tpope/vim-surround'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'klen/python-mode'
+" Plugin 'tpope/vim-surround'
+" Plugin 'jiangmiao/auto-pairs'
+" Plugin 'klen/python-mode'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
 
@@ -175,4 +229,8 @@ set laststatus=2
 let g:SimpyFlod_docstring_preview=1
 
 "syntastic
+let g:syntastic_ignore_files = ['\.py$']
 " let python_highlight_all=1
+
+" set airline theme
+let g:airline_theme='simple'
