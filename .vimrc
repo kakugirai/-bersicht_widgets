@@ -2,11 +2,13 @@
 let mapleader = ','
 let g:mapleader = ','
 
+" Enable syntatic color scheme
 syntax enable
 
+" Set default color scheme to molokai
+colorscheme molokai
 let g:molokai_original = 1
 let g:rehash256 = 1
-colorscheme molokai
 
 " Overwirte molokai background
 hi Normal ctermbg=none
@@ -64,31 +66,30 @@ set lazyredraw
 " highlight matching [{()}]
 set showmatch
 
-" search as characters are entered
+" Search as characters are entered
 set incsearch
-
+" Set case insensitive while searching
 set ignorecase
 
-" highlight matches
+" Highlight matches
 set hlsearch
 
-
-" turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
-
-" enable folding
+" Enable folding
 set foldenable
 
-" open most folds by default
+" Open most folds by default
 set foldlevelstart=10
 
 " 10 nested fold max
 set foldnestmax=10 
 
-" space open/closes folds
+" Turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Use space open/closes folds
 nnoremap <space> za
 
-" fold based on indent level
+" Fold based on indent level
 set foldmethod=indent
 
 nnoremap j gj
@@ -121,6 +122,7 @@ set noerrorbells
 set t_vb=
 set tm=500
 
+" enable regular expression while searching
 set magic
 
 set backspace=2
@@ -134,14 +136,19 @@ set ruler
 set showcmd
 
 " show command mode (Normal/Visual/Insert)
-set showmode
+" set showmode
 
-set scrolloff=10
+set scrolloff=9
+
+" display a long line in one line
 set nowrap
+" wrap a long line to severals= lines
+" set wrap
+
 
 set encoding=utf-8
 
-"split navigations
+" split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -171,11 +178,11 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'tpope/vim-fugitive'
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 Plugin 'townk/vim-autoclose'
-Plugin 'yggdroot/indentline'
+" Plugin 'yggdroot/indentline'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'JavaScript-Indent'
+" Plugin 'JavaScript-Indent'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -186,7 +193,7 @@ Plugin 'valloric/youcompleteme'
 " Plugin 'tpope/vim-surround'
 " Plugin 'jiangmiao/auto-pairs'
 " Plugin 'klen/python-mode'
-Plugin 'tmhedberg/SimpylFold'
+" Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
@@ -228,9 +235,22 @@ set laststatus=2
 " SimpyFlod setting
 let g:SimpyFlod_docstring_preview=1
 
-"syntastic
-let g:syntastic_ignore_files = ['\.py$']
+" syntastic
+let g:syntastic_ignore_files = ['\.py$', '\.dtx', '\.tex']
 " let python_highlight_all=1
 
 " set airline theme
 let g:airline_theme='simple'
+
+" Ctrlp setting
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" When invoked, unless a starting directory is specified, CtrlP will set its
+" local working directory according to this variable:
+" 'c' - the directory of the current file.
+" 'r' - the nearest ancestor that contains one of these directories or files: 
+"       .git .hg .svn .bzr _darcs
+" 'a' - like c, but only if the current working directory outside of CtrlP is
+"       not a direct ancestor of the directory of the current file
+" 0 or '' (empty string) - disable this feature.
+let g:ctrlp_working_path_mode = 'ra'
