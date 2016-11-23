@@ -20,9 +20,9 @@ set history=2000
 " Check file type
 filetype on
 " Autoindent by checking file type
-filetype indent on
+" filetype indent on
 " Allow plugin
-filetype plugin on
+" filetype plugin on
 " Open auto-complete
 filetype plugin indent on
 
@@ -145,6 +145,23 @@ set nowrap
 " wrap a long line to severals= lines
 " set wrap
 
+" disable auto_comment while pasting
+augroup auto_comment
+    au!
+    au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
+
+" paste mode setting
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
 
 set encoding=utf-8
 
@@ -178,12 +195,14 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'tpope/vim-fugitive'
-" Plugin 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 Plugin 'townk/vim-autoclose'
 " Plugin 'yggdroot/indentline'
 Plugin 'hynek/vim-python-pep8-indent'
-" Plugin 'JavaScript-Indent'
+Plugin 'JavaScript-Indent'
 Plugin 'scrooloose/nerdtree'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'me-vlad/python-syntax.vim'
@@ -200,7 +219,7 @@ Plugin 'kien/ctrlp.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+" filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -210,10 +229,14 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" JavaScript plugin setting
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 set foldmethod=syntax
+
+" Map NERDTree shortcut
 map <C-n> :NERDTreeToggle<CR>
 
 " set rtp+=$HOMEanaconda/lib/python2.7/site-packages/powerline/bindings/vim
