@@ -171,6 +171,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Return to last edit position when opening files
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -201,6 +207,7 @@ Plugin 'townk/vim-autoclose'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'JavaScript-Indent'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-airline/vim-airline'
@@ -211,7 +218,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'valloric/youcompleteme'
 " Plugin 'tpope/vim-surround'
 " Plugin 'jiangmiao/auto-pairs'
-" Plugin 'klen/python-mode'
+Plugin 'klen/python-mode'
 " Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
 
@@ -277,3 +284,17 @@ let g:ctrlp_cmd = 'CtrlP'
 "       not a direct ancestor of the directory of the current file
 " 0 or '' (empty string) - disable this feature.
 let g:ctrlp_working_path_mode = 'ra'
+
+" the NERD commenter setting
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
