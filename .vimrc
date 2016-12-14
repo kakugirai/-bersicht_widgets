@@ -1,6 +1,6 @@
 " Change <leader> key
-let mapleader = ','
-let g:mapleader = ','
+let mapleader = " "
+let g:mapleader = " " 
 
 " Enable syntatic color scheme
 syntax enable
@@ -43,7 +43,22 @@ set tabstop=4
 " number of spaces in tab when editing
 set softtabstop=4
 set shiftwidth=4
-
+"au BufNewFile,BufRead *.py
+"    \ set tabstop=4
+"    \ set softtabstop=4
+"    \ set shiftwidth=4
+"    \ set textwidth=79
+"    \ set expandtab
+"    \ set autoindent
+"    \ set fileformat=unix
+"
+"au BufNewFile,BufRead *.js, *.html, *.css
+"    \ set tabstop=2
+"    \ set softtabstop=2
+"    \ set shiftwidth=2
+"
+" remove write spaces in files
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 " tabs are spaces
 set expandtab 
 " show line numbers
@@ -212,14 +227,14 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'me-vlad/python-syntax.vim'
-Plugin 'scrooloose/syntastic'
+" Plugin 'me-vlad/python-syntax.vim'
+" Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'valloric/youcompleteme'
 " Plugin 'tpope/vim-surround'
 " Plugin 'jiangmiao/auto-pairs'
 Plugin 'klen/python-mode'
-" Plugin 'tmhedberg/SimpylFold'
+Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
@@ -288,7 +303,7 @@ let g:ctrlp_working_path_mode = 'ra'
 " the NERD commenter setting
 
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+" let g:NERDSpaceDelims = 1
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
@@ -297,4 +312,14 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDCompactSexyComs = 1
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
+" Ignore .pyc files
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" simpycode setting
+" show docstrings for folded code
+let g:SimpylFold_docstring_preview=1
+
+" YouCompleteMe setting
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
