@@ -1,1 +1,1 @@
-#rc_file
+# dotfiles
