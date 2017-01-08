@@ -1,7 +1,8 @@
-modules=("/" "/homebrew-core" "/homebrew-science" "/homebrew-python")
+#!/usr/bin/env bash
 
 function change_url() {
     link=$1
+    modules=("/" "/homebrew-core" "/homebrew-science" "/homebrew-python")
     for module in ${modules[@]}; do
         if [ ${module} = "/" ]; then
             cd $(brew --repo)
