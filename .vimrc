@@ -1,3 +1,5 @@
+set nocompatible
+
 " Change <leader> key
 let mapleader = " "
 let g:mapleader = " " 
@@ -192,8 +194,10 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
-set nocompatible              " be iMproved, required
 filetype off                  " required
+
+" use W to save as sudo
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -217,23 +221,23 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
-Plugin 'townk/vim-autoclose'
+" Plugin 'townk/vim-autoclose'
 " Plugin 'yggdroot/indentline'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'JavaScript-Indent'
+" Plugin 'JavaScript-Indent'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'me-vlad/python-syntax.vim'
+Plugin 'me-vlad/python-syntax.vim'
 " Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'valloric/youcompleteme'
-" Plugin 'tpope/vim-surround'
-" Plugin 'jiangmiao/auto-pairs'
-Plugin 'klen/python-mode'
+Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
+"Plugin 'klen/python-mode'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
 
@@ -277,11 +281,16 @@ let g:syntastic_check_on_wq = 0
 
 set laststatus=2
 
+" check syntax when opening file
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " SimpyFlod setting
 let g:SimpyFlod_docstring_preview=1
 
 " syntastic
-let g:syntastic_ignore_files = ['\.py$', '\.dtx', '\.tex']
+let g:syntastic_ignore_files = ['\.dtx', '\.tex']
+let g:syntastic_python_checkers = ['pylint']
 " let python_highlight_all=1
 
 " set airline theme
