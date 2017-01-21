@@ -163,7 +163,7 @@ autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
 function! AutoSetFileHead()
     " .sh
     if &filetype == 'sh'
-        call setline(1, "\#!/usr/bin/env bin")
+        call setline(1, "\#!/usr/bin/env bash")
     endif
 
     " python
@@ -291,9 +291,11 @@ Plugin 'me-vlad/python-syntax.vim'
 " Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'valloric/youcompleteme'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
-"Plugin 'klen/python-mode'
+Plugin 'klen/python-mode'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
 
@@ -350,7 +352,7 @@ let g:syntastic_python_checkers = ['pylint']
 " let python_highlight_all=1
 
 " set airline theme
-let g:airline_theme='simple'
+let g:airline_theme='light'
 
 " Ctrlp setting
 let g:ctrlp_map = '<c-p>'
@@ -387,3 +389,14 @@ let g:SimpylFold_docstring_preview=1
 " YouCompleteMe setting
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_python_binary_path = '/usr/local/bin/python3'
+" pymode setting
+" let g:pymode_python = 'python3'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<C-e>"
+let g:UltiSnipsJumpForwardTrigger="<C-y>"
+let g:UltiSnipsJumpBackwardTrigger="<C-m>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
