@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 echo "Where are you?
 1) China?
@@ -9,3 +10,4 @@ if [ $location = "1" ]; then
 elif [ $location = "2" ]; then
     rm ~/.pip/pip.conf
 fi
+
