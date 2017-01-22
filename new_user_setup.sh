@@ -47,6 +47,7 @@ echo "vimrc backup finished"
 # Installation
 cp $HOME/dotfiles/vim $HOME/.vim
 cp $HOME/dotfiles/vimrc $HOME/.vimrc
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "vimrc installed"
 
 # Install plugins
