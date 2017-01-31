@@ -19,11 +19,11 @@ echo "Where are you?
 2) rest of the world?"
 read location
 
-if [ $location = "1" ]; then
+if [ $location == "1" ]; then
     change_url "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew"
     echo "export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles" >> ~/.zshrc
     echo "WELCOME TO CHINA"
-elif [ $location = "2" ]; then
+elif [ $location == "2" ]; then
     change_url "https://github.com/Homebrew"
     sed -i ".china" "/HOMEBREW_BOTTLE_DOMAIN/d" ~/.zshrc
     echo "WELCOME TO THE REST OF THE WORLD"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ============================ Basic ===========================
 # add my public key
@@ -50,8 +50,21 @@ cp $HOME/dotfiles/vimrc $HOME/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "vimrc installed"
 
-# Install plugins
+# Install vim plugins
 vim -u $HOME/.vimrc +PluginInstall! +PluginClean! +qall
 echo "plugin installed"
 
-# TODO: script to install youcompleteme
+# Install youcompleteme
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+   echo "install YouCompleteMe dependencies"
+   sudo apt-get install build-essential cmake python-dev python3-dev
+   cd $HOME/.vim/bundle/youcompleteme
+   ./install.py --clang-completer
+   echo "YouCompleteMe is installed"
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+   platform='freebsd'
+fi
+
