@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# ============================ Basic ===========================
+# ============================ SSH ===========================
 # add my public key
 mkdir $HOME/.ssh
 chmod 700 $HOME/.ssh
@@ -10,8 +10,8 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCfZ/EX8imJx8ixuvBoQbhGM+joj6M4Oy3fpq
 chmod 644 authorized_keys
 echo "public key added"
 
-# get my stuffs
-sudo apt-get install zsh git curl wget
+# get my essentials
+sudo apt-get install zsh git curl wget build-essential cmake python-dev python3-dev python-pip
 
 # ============================ ZSH ===========================
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -59,8 +59,7 @@ platform='unknown'
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
    platform='linux'
-   echo "install YouCompleteMe dependencies"
-   sudo apt-get install build-essential cmake python-dev python3-dev
+   echo "install YouCompleteMe"
    cd $HOME/.vim/bundle/youcompleteme
    ./install.py --clang-completer
    echo "YouCompleteMe is installed"
