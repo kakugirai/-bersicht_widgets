@@ -11,6 +11,7 @@ chmod 644 authorized_keys
 echo "public key added"
 
 # get my essentials
+sudo apt-get update
 sudo apt-get install zsh git curl wget build-essential cmake python-dev python3-dev python-pip
 
 # ============================ ZSH ===========================
