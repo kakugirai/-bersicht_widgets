@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# ========================== General =========================
+# get my essentials
+sudo apt-get update
+sudo apt-get install zsh git curl wget build-essential cmake python-dev python3-dev python-pip
+
 # ============================ SSH ===========================
 # add my public key
 mkdir $HOME/.ssh
@@ -10,13 +15,14 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCfZ/EX8imJx8ixuvBoQbhGM+joj6M4Oy3fpq
 chmod 644 authorized_keys
 echo "public key added"
 
-# get my essentials
-sudo apt-get update
-sudo apt-get install zsh git curl wget build-essential cmake python-dev python3-dev python-pip
+# ============================ Git ===========================
+cp $HOME/dotfiles/gitignore_global $HOME/.gitignore_global
+cp $HOME/dotfiles/gitconfig $HOME/.gitconfig
 
-# ============================ ZSH ===========================
+# ============================ zsh ===========================
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 echo "zsh installed"
+exit
 
 # install my zsh theme
 mkdir -p $HOME/.oh-my-zsh/custom/themes
