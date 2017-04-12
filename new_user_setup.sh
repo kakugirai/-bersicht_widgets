@@ -49,28 +49,30 @@ echo "alias added"
 today=`date +%Y%m%d`
 for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc ; do [ -e $i ] && [ ! -L $i ] && mv $i $i.$today; done
 for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc ; do [ -L $i ] && unlink $i ; done
-echo "vimrc backup finished"
+echo "vimrc backup is finished"
 
-# Installation
-cp -r $HOME/dotfiles/vim $HOME/.vim
-cp $HOME/dotfiles/vimrc $HOME/.vimrc
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-echo "vimrc installed"
+read -p "Install vimrc server version (y/n)?" answer
+case ${answer:0:1} in
+    y|Y )
+        cp -r $HOME/dotfiles/vim $HOME/.vim
+        cp $HOME/dotfiles/vimrc $HOME/.vimrc
+        echo "vimrc is installed"
+    ;;
+    * )
+        # Installation
+        cp -r $HOME/dotfiles/vim $HOME/.vim
+        cp $HOME/dotfiles/vimrc $HOME/.vimrc
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+        echo "vimrc is installed"
 
-# Install vim plugins
-vim -u $HOME/.vimrc +PluginInstall! +PluginClean! +qall
-echo "plugin installed"
+        # Install vim plugins
+        vim -u $HOME/.vimrc +PluginInstall! +PluginClean! +qall
+        echo "Vim plugins are installed"
 
-# Install youcompleteme
-platform='unknown'
-unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
-   platform='linux'
-   echo "install YouCompleteMe"
-   cd $HOME/.vim/bundle/youcompleteme
-   ./install.py --clang-completer
-   echo "YouCompleteMe is installed"
-elif [[ "$unamestr" == 'FreeBSD' ]]; then
-   platform='freebsd'
-fi
+        # Install youcompleteme
+        cd $HOME/.vim/bundle/youcompleteme
+        ./install.py --clang-completer
+        echo "YouCompleteMe is installed"
+    ;;
+esac
 
