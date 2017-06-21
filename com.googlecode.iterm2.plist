@@ -45,7 +45,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Documents</string>
+	<string>~/Desktop</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{947, 722}</string>
 	<key>NSNavPanelExpandedSizeForSaveMode</key>
@@ -84,7 +84,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>612 307 445 77 0 0 1280 800 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>442 486 400 129 0 0 1280 778 </string>
+	<string>442 503 400 129 0 0 1280 800 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>290 90 700 622 0 0 1280 778 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
@@ -1409,7 +1409,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-04-09T00:24:38Z</date>
+	<date>2017-05-23T13:08:42Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>Secure Input</key>
@@ -1425,11 +1425,15 @@
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1491211776</real>
+	<real>1493863808</real>
 	<key>WindowNumber</key>
 	<true/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
+	<key>findIgnoreCase_iTerm</key>
+	<true/>
+	<key>findRegex_iTerm</key>
+	<false/>
 	<key>iTerm Version</key>
 	<string>3.0.15</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>

@@ -55,7 +55,7 @@ read -p "Install vimrc server version (y/n)?" answer
 case ${answer:0:1} in
     y|Y )
         cp -r $HOME/dotfiles/vim $HOME/.vim
-        cp $HOME/dotfiles/vimrc $HOME/.vimrc
+        cp $HOME/dotfiles/vimrc_server $HOME/.vimrc
         echo "vimrc is installed"
     ;;
     * )
