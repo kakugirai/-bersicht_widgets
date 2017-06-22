@@ -26,8 +26,8 @@ exit
 
 # install my zsh theme
 mkdir -p $HOME/.oh-my-zsh/custom/themes
-cp $HOME/dotfiles/my_ys.zsh-theme $HOME/.oh-my-zsh/custom/themes/
-sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="my_ys"/g' $HOME/.zshrc
+cp $HOME/dotfiles/lolita.zsh-theme $HOME/.oh-my-zsh/custom/themes/
+sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="lolita"/g' $HOME/.zshrc
 echo "my zsh theme added"
 
 # install zsh-autosuggestions plugin

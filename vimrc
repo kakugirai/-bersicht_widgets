@@ -98,6 +98,7 @@ augroup auto_comment
 augroup END
 
 " paste mode setting
+" automatically enter paste mode when usring ctrl+v
 let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
 
@@ -153,10 +154,11 @@ let g:rehash256 = 1
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
-" ============================ specific file type ===========================
+" ================================ specific file type =========================
 
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+autocmd FileType javascript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
 
 autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
@@ -169,7 +171,7 @@ function! AutoSetFileHead()
     " python
     if &filetype == 'python'
         call setline(1, "\#!/usr/bin/env python")
-        call append(1, "\# encoding: utf-8")
+        call append(1, "# -*- coding: utf-8 -*-")
     endif
 
     normal G
@@ -278,7 +280,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 " Plugin 'townk/vim-autoclose'
-" Plugin 'yggdroot/indentline'
+Plugin 'yggdroot/indentline'
 Plugin 'hynek/vim-python-pep8-indent'
 " Plugin 'JavaScript-Indent'
 Plugin 'scrooloose/nerdtree'
@@ -289,7 +291,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'me-vlad/python-syntax.vim'
 " Plugin 'scrooloose/syntastic'
-Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'valloric/youcompleteme'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -298,6 +300,8 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'klen/python-mode'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
+" Plugin 'leafgarland/typescript-vim'
+" Plugin 'editorconfig/editorconfig-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -314,18 +318,9 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" JavaScript plugin setting
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
-set foldmethod=syntax
 
 " Map NERDTree shortcut
 map <C-n> :NERDTreeToggle<CR>
-
-" set rtp+=$HOMEanaconda/lib/python2.7/site-packages/powerline/bindings/vim
-" set laststatus=2
-" set t_Co=256
 
 " syntastic recommend setting
 set statusline+=%#warningmsg#
@@ -350,6 +345,7 @@ let g:SimpyFlod_docstring_preview=1
 let g:syntastic_ignore_files = ['\.dtx', '\.tex']
 let g:syntastic_python_checkers = ['pylint']
 " let python_highlight_all=1
+let g:syntastic_javascript_checkers=['eslint']
 
 " set airline theme
 let g:airline_theme='light'
@@ -370,7 +366,9 @@ let g:ctrlp_working_path_mode = 'ra'
 " the NERD commenter setting
 
 " Add spaces after comment delimiters by default
-" let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 2
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
