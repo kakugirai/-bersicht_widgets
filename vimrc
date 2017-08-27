@@ -286,11 +286,11 @@ Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+" Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'me-vlad/python-syntax.vim'
-" Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'valloric/youcompleteme'
 Plugin 'SirVer/ultisnips'
@@ -322,6 +322,13 @@ filetype plugin indent on    " required
 " Map NERDTree shortcut
 map <C-n> :NERDTreeToggle<CR>
 
+" SimpyFlod setting
+let g:SimpyFlod_docstring_preview=1
+
+" show docstrings for folded code
+let g:SimpylFold_docstring_preview=1
+
+
 " syntastic recommend setting
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -335,17 +342,14 @@ let g:syntastic_check_on_wq = 0
 set laststatus=2
 
 " check syntax when opening file
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-" SimpyFlod setting
-let g:SimpyFlod_docstring_preview=1
-
-" syntastic
 let g:syntastic_ignore_files = ['\.dtx', '\.tex']
 let g:syntastic_python_checkers = ['pylint']
+
 " let python_highlight_all=1
-let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " set airline theme
 let g:airline_theme='light'
@@ -366,7 +370,7 @@ let g:ctrlp_working_path_mode = 'ra'
 " the NERD commenter setting
 
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 2
+let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
 " Allow commenting and inverting empty lines (useful when commenting a region)
@@ -380,21 +384,19 @@ let g:NERDDefaultAlign = 'left'
 " Ignore .pyc files
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
-" simpycode setting
-" show docstrings for folded code
-let g:SimpylFold_docstring_preview=1
-
 " YouCompleteMe setting
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_python_binary_path = '/usr/local/bin/python3'
+"Youcompleteme fix
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
 " pymode setting
 " let g:pymode_python = 'python3'
+let g:pymode_virtualenv=1 " Auto fix vim python paths if virtualenv enabled
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-e>"
 let g:UltiSnipsJumpForwardTrigger="<C-y>"
 let g:UltiSnipsJumpBackwardTrigger="<C-m>"
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"

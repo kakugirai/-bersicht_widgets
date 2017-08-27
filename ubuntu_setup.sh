@@ -19,30 +19,6 @@ echo "public key added"
 cp $HOME/dotfiles/gitignore_global $HOME/.gitignore_global
 cp $HOME/dotfiles/gitconfig $HOME/.gitconfig
 
-# ============================ zsh ===========================
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-echo "zsh installed"
-exit
-
-# install my zsh theme
-mkdir -p $HOME/.oh-my-zsh/custom/themes
-cp $HOME/dotfiles/lolita.zsh-theme $HOME/.oh-my-zsh/custom/themes/
-sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="lolita"/g' $HOME/.zshrc
-echo "my zsh theme added"
-
-# install zsh-autosuggestions plugin
-mkdir -p $HOME/.oh-my-zsh/custom/plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-sed -i '/plugins=(git)/c\plugins=(git z zsh-autosuggestions)' $HOME/.zshrc
-echo "zsh plugins added"
-
-# add alias
-cat << EOF >> $HOME/.zshrc
-alias zshrc="vim $HOME/.zshrc"
-alias vimrc="vim $HOME/.vimrc"
-EOF
-echo "alias added"
-
 # ============================ VIM ===========================
 
 # Backup
@@ -75,4 +51,29 @@ case ${answer:0:1} in
         echo "YouCompleteMe is installed"
     ;;
 esac
+
+
+# ============================ zsh ===========================
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+echo "zsh installed"
+exit
+
+# install my zsh theme
+mkdir -p $HOME/.oh-my-zsh/custom/themes
+cp $HOME/dotfiles/lolita.zsh-theme $HOME/.oh-my-zsh/custom/themes/
+sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="lolita"/g' $HOME/.zshrc
+echo "my zsh theme added"
+
+# install zsh-autosuggestions plugin
+mkdir -p $HOME/.oh-my-zsh/custom/plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+sed -i '/plugins=(git)/c\plugins=(git z zsh-autosuggestions)' $HOME/.zshrc
+echo "zsh plugins added"
+
+# add alias
+cat << EOF >> $HOME/.zshrc
+alias zshrc="vim $HOME/.zshrc"
+alias vimrc="vim $HOME/.vimrc"
+EOF
+echo "alias added"
 
