@@ -1,0 +1,8 @@
+[user]
+	name = Girai Kaku
+	email = kakugirai@gmail.com
+[push]
+    default = matching
+[core]
+    editor = vim
+	excludesfile = /home/kakugirai/.gitignore_global
