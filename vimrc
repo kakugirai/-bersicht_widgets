@@ -147,8 +147,8 @@ set mouse=nicr
 " =================================== theme ===================================
 
 colorscheme molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
+" let g:molokai_original = 1
+" let g:rehash256 = 1
 
 " Overwirte molokai background
 hi Normal ctermbg=none
@@ -300,6 +300,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'klen/python-mode'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
+Plugin 'flazz/vim-colorschemes'
 " Plugin 'leafgarland/typescript-vim'
 " Plugin 'editorconfig/editorconfig-vim'
 
