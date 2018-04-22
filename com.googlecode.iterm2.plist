@@ -725,13 +725,13 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>10 87 627 622 0 0 1280 800 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>220 316 599 388 0 0 1280 800 </string>
+	<string>-36 1383 606 469 -674 800 2560 1080 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>247 319 796 473 0 0 1280 800 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>10 10 1260 775 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1280 800 0 0 1280 800 </string>
+	<string>0 0 810 577 0 0 1280 800 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1342,12 +1342,16 @@
 			</dict>
 			<key>Selection Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.23076923191547394</real>
+				<real>0.72941176470588232</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.16498950123786926</real>
+				<real>0.30588235294117649</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.098039215686274508</real>
 			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
@@ -2008,12 +2012,16 @@
 			</dict>
 			<key>Selection Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.23076923191547394</real>
+				<real>0.72941176470588232</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.16498950123786926</real>
+				<real>0.30588235294117649</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.098039215686274508</real>
 			</dict>
 			<key>Send Code When Idle</key>
 			<false/>
@@ -2154,7 +2162,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-11-16T08:19:11Z</date>
+	<date>2018-04-07T17:07:49Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>Secure Input</key>
