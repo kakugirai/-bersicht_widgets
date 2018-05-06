@@ -112,7 +112,7 @@ endfunction
 
 " encoding
 set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencodings=utf-8,ucs-bom,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set termencoding=utf-8
 set ffs=unix,dos,mac
 set formatoptions+=m
@@ -159,6 +159,7 @@ hi NonText ctermbg=none
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd FileType javascript set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+autocmd FileType vue set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
 
 autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
@@ -297,10 +298,12 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'klen/python-mode'
+Plugin 'git@github.com:python-mode/python-mode.git'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'kien/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'posva/vim-vue'
+Plugin 'git@github.com:fatih/vim-go.git'
 " Plugin 'leafgarland/typescript-vim'
 " Plugin 'editorconfig/editorconfig-vim'
 
@@ -388,8 +391,8 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 " YouCompleteMe setting
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_python_binary_path = '/usr/local/bin/python3'
-"Youcompleteme fix
+" let g:ycm_python_binary_path = '/usr/local/opt/python/libexec/bin/python'
+" Youcompleteme fix
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 " pymode setting
@@ -401,3 +404,10 @@ let g:UltiSnipsExpandTrigger="<C-e>"
 let g:UltiSnipsJumpForwardTrigger="<C-y>"
 let g:UltiSnipsJumpBackwardTrigger="<C-m>"
 
+" vue highlight setting
+autocmd BufNewFile,BufRead *.vue set ft=vue
+
+" stop hyper from displying some random utf-8 code
+set t_RV=
+" python_mode setting
+let g:pymode_python = 'python3'

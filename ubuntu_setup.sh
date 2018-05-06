@@ -6,7 +6,7 @@
 # ========================== General =========================
 # get my essentials
 sudo apt-get update
-sudo apt-get install zsh git curl wget build-essential cmake python-dev python3-dev python-pip
+sudo apt-get install zsh git curl wget build-essential cmake python-dev python3-dev python-pip linux-tools-common linux-tools-generic linux-tools-`uname -r`
 
 # ============================ SSH ===========================
 # add my public key
